@@ -42,6 +42,7 @@ header .body {
   margin: auto;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 header .body a,
@@ -49,7 +50,7 @@ header .body img {
   height: 100%;
 }
 
-header .body nav {
+header .body .desktop_nav {
   margin-left: auto;
   display: flex;
   text-transform: uppercase;
@@ -57,12 +58,12 @@ header .body nav {
   gap: 2rem;
 }
 
-header .body nav a {
+header .body .desktop_nav a {
   color: #3329FF;
   transition: color 0.2s;
   font-weight: 700;
 }
-header .body nav a:hover {
+header .body .desktop_nav a:hover {
   color: #040435;
 }
 
@@ -115,7 +116,6 @@ section .body .title::after {
 }
 .hero .content a {
   color: #fff;
-  background-color: #040435;
   text-transform: uppercase;
   font-size: 0.9rem;
   font-weight: 700;
@@ -123,9 +123,10 @@ section .body .title::after {
   margin: auto;
   padding: 1rem;
   transition: all 0.2s;
+  background-color: #3329FF;
 }
 .hero .content a:hover {
-  background-color: #3329FF;
+  background-color: #040435;
 }
 
 /* PROJECTS */
@@ -145,7 +146,7 @@ section .body .title::after {
   width: 100%;
 }
 .projects .list h1 {
-  margin: 1rem 0;
+  margin: 2rem 0;
   text-transform: uppercase;
 }
 .projects .list p {
@@ -205,7 +206,6 @@ section .body .title::after {
 .contact form button {
   display: block;
   color: #fff;
-  background-color: #040435;
   text-transform: uppercase;
   font-size: 0.9rem;
   font-weight: 700;
@@ -213,12 +213,13 @@ section .body .title::after {
   margin: auto;
   padding: 1rem;
   border: 0;
+  background-color: #3329FF;
   transition: background-color 0.2s;
   cursor: pointer;
   margin-top: 1rem;
 }
 .contact form button:hover {
-  background-color: #3329FF;
+  background-color: #040435;
 }
 .contact .form_output {
   text-align: center;
@@ -242,3 +243,64 @@ footer .body {
 }
 
 .dnone {visibility: hidden;}
+
+.mobile_button,
+.mobile_nav {
+  display: none;
+}
+
+@media (max-width: 1080px) {
+  .projects .list {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  header .body .desktop_nav {
+    display: none;
+  }
+  header .body .mobile_button,
+  header .body .mobile_nav {
+    display: block;
+  }
+  header .body .mobile_button {
+    border: 0;
+    background-color: #3329FF;
+    height: 4rem;
+    width: 4rem;
+    padding: 1rem;
+    margin-left: auto;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  header .body .mobile_button:hover {
+    background-color: #040435;
+  }
+
+  header .body .mobile_button svg {
+    fill: #fff;
+  }
+  header .body .mobile_nav {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    right: 5rem;
+    top: 4.5rem;
+    text-transform: uppercase;
+  }
+  header .body .mobile_nav.active {
+    display: flex;
+  }
+
+  header .body .mobile_nav a {
+    background-color: #3329FF;
+    color: #fff;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  header .body .mobile_nav a:hover { 
+    background-color: #040435;
+  }
+
+
+}
